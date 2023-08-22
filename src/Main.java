@@ -10,6 +10,24 @@ public class Main {
         System.out.println(findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
     }
 
+    public boolean isPalindrome(int x) {
+        // 判断是否只有一位，直接返回true
+        if (x < 10 && x >= 0) {
+            return true;
+        }
+        // 判断末尾是否为0，数字是否小于0，直接返回false
+        if (x % 10 == 0 || x < 0) {
+            return false;
+        }
+        // 计算回文数
+        int rev = 0;
+        while (x > rev) {
+            rev = rev * 10 + x % 10;
+            x = x / 10;
+        }
+        return (x == rev || x == rev / 10);
+    }
+
     public int myAtoi(String str) {
         str = str.trim();
         final int len = str.length();
